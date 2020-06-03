@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>赵晨宇</title>
+    <!--加载外部资源-->
+    <link rel="short icon " href="Resource/Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStule.css">
+    <script type="text/javascript" src="CommentJS.js"></script>
+
+    <style>
+        article{
+            margin: 20px;
+        }
+        h3{
+            color: red;
+            font-size: 18px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #dddddd;
+        }
+        h4{
+            font-size: 14px;
+        }
+        p{
+            font-size: 12px;
+            text-indent: 2em;
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<!--第一部分-->
+<!--语义化标签：标签本身没有专门的意义，主要目的是增强程序的可读性-->
+<!--span用来放少量文字的标签-->
+<header>
+    <span>平台风采</span>
+</header>
+
+<!--第二部分-->
+<!--img用于放图片资源-->
+<section class="DS_second_section">
+    <img src="Resource/Resource/banner4.png" alt="请检查网络">
+</section>
+
+<!--第三部分-->
+<article>
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+
+</article>
+
+<!--第四部分-->
+<footer>
+    <a href="DropleService.html">  <img src="Resource/Resource/nav10.png" alt> <span>小滴服务</span></a>
+    <a href="EnterppriseProject.html">  <img src="Resource/Resource/nav20.png" alt> <span>企业项目</span></a>
+    <a href="ServiceProcess.html">  <img src="Resource/Resource/nav30.png" alt> <span>服务流程</span></a>
+    <a href="">  <img src="Resource/Resource/nav41.png" alt> <span style="color: red">平台风采</span></a>
+    <a href="MyDroplet.html">  <img src="Resource/Resource/nav50.png" alt> <span>我的小滴</span></a>
+</footer>
+
+
+<script>
+
+    function  assign(obj) {
+        var title_tag = document.getElementById("title");
+        var subTitle_tag = document.getElementById("subTitle");
+        var info_tag = document.getElementById("info");
+
+        title_tag.innerHTML = obj.title;
+        subTitle_tag.innerHTML = obj.subTitle;
+        info_tag.innerHTML = obj.info;
+    }
+
+    var obj1 = JSON.parse(localStorage.getItem("platform_json"));
+
+
+    if (obj){
+        var obj = obj_text.data;
+        assign(obj1);
+    }else{
+        requestMethod('get', 'aboutus', "", function(obj,obj1){
+            assign(obj);
+
+            window.localStorage.setItem("platform_json", obj1)
+        })
+    }
+
+</script>
+
+</body>
+</html>

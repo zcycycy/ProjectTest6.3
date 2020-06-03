@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>赵晨宇</title>
+
+    <link rel="short icon " href="Resource/Resource/icon.png">
+    <link rel="stylesheet" href="ExternalStule.css">
+
+    <script type="text/javascript" src="CommentJS.js"></script>
+    <style>
+
+        .i_head_div{
+            text-align: center;
+        }
+        .i_head_div img{
+            margin-top: 50px;
+        }
+
+        .i_inner_div{
+            border: 1px solid #dddddd;
+            width: 90%;
+            margin: 0 auto;
+            height: 100px;
+            background: white;
+            margin-top: 30px;
+            line-height: 50px;
+            border-radius: 5px;
+        }
+        .i_inner_div div{
+            height: 50px;
+        }
+        .i_inner_div div span{
+            font-size: 20px;
+            padding-left: 15px;
+        }
+
+
+        .i_login_div{
+            height: 50px;
+            width: 90%;
+            background: rgb(36,92,161);
+            margin: 0 auto;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .i_login_div input{
+            font-size: 20px;
+            color: white;
+        }
+
+        input{outline: medium; background-color: transparent; border: 0}
+    </style>
+</head>
+<body>
+
+<!--第一部分-->
+<header>
+    <span>登录</span>
+</header>
+
+<!--第二部分-->
+<div class="i_head_div">
+    <img src="Resource/Resource/head.png">
+</div>
+
+<form action="">
+    <div class="i_inner_div">
+        <div style="border-bottom: 1px solid #dddddd">
+            <span>账号名:</span>
+            <input id="i_account" type="text" value="admin"><br>
+        </div>
+
+        <div>
+            <span>密码:</span>
+            <input id="i_pwd" type="password" value="admin"><br>
+        </div>
+    </div>
+
+
+    <div class="i_login_div">
+        <input id="i_btn" type="button" value="登录">
+    </div>
+
+
+    <script>
+
+        var btn=document.getElementById("i_btn");
+        btn.onclick=function () {
+            var userName = encodeURIComponent(document.getElementById("i_account").value)
+            var pwd = encodeURIComponent(document.getElementById("i_pwd").value)
+
+            var par = "username=" + userName + "&pwd=" + pwd;
+
+            requestMethod('post', 'login',par, function (str) {
+                if (str == "登录成功") {
+                    location.href = "DropleService.html";
+                } else {
+                    alert(str);
+                }
+            });
+        }
+    </script>
+
+
+</form>
+
+</body>
+</html>
